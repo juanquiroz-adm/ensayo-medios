@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         :root { --bg-color: #030303; --accent: #ffffff; }
@@ -15,51 +15,54 @@
         .font-serif { font-family: 'Merriweather', serif; }
         .font-mono-title { font-family: 'Space Grotesk', sans-serif; }
         
-        /* Reading Progress Bar */
-        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #ffffff; width: 0%; z-index: 100; transition: width 0.2s ease-out; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #3b82f6, #10b981); width: 0%; z-index: 100; transition: width 0.2s ease-out; box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); }
         
-        /* Interactive Module Transitions */
         .fade-in { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Typography refinements */
-        .article-body p { margin-bottom: 2rem; line-height: 1.9; font-size: 1.15rem; font-weight: 300; color: #b3b3b3; }
-        .article-body h2 { color: #ffffff; font-size: 1.8rem; font-weight: 700; margin-top: 4rem; margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; border-bottom: 1px solid #262626; padding-bottom: 0.5rem; }
-        .drop-cap:first-letter { float: left; font-size: 5rem; line-height: 0.8; padding-top: 4px; padding-right: 8px; padding-left: 3px; font-family: 'Merriweather', serif; color: #ffffff; font-weight: bold; }
+        .article-body p { margin-bottom: 2rem; line-height: 2; font-size: 1.18rem; font-weight: 300; color: #b3b3b3; }
+        .article-body h2 { color: #ffffff; font-size: 2rem; font-weight: 700; margin-top: 4.5rem; margin-bottom: 2rem; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; border-bottom: 1px solid #262626; padding-bottom: 0.75rem; }
+        .drop-cap:first-letter { float: left; font-size: 5.5rem; line-height: 0.8; padding-top: 8px; padding-right: 12px; padding-left: 3px; font-family: 'Merriweather', serif; color: #ffffff; font-weight: 900; }
+        
+        .glass-image { border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); border-radius: 12px; transition: transform 0.5s ease, opacity 0.5s ease; }
+        .glass-image:hover { transform: scale(1.02); border-color: rgba(255,255,255,0.2); }
+        
+        .parallax-section { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
     </style>
 </head>
 <body class="antialiased selection:bg-neutral-200 selection:text-black">
 
     <div id="progress-bar"></div>
 
-    <nav class="fixed top-0 w-full z-40 bg-black/70 backdrop-blur-xl border-b border-neutral-900 transition-all duration-300">
+    <nav class="fixed top-0 w-full z-40 bg-black/80 backdrop-blur-xl border-b border-neutral-900 transition-all duration-300">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <span class="text-white font-bold tracking-[0.3em] uppercase text-[10px]"><i data-lucide="zap" class="w-3 h-3 inline-block mr-1 mb-0.5"></i> Juan Quiroz</span>
+            <span class="text-white font-bold tracking-[0.3em] uppercase text-[10px]"><i data-lucide="zap" class="w-3 h-3 inline-block mr-1 mb-0.5 text-blue-500"></i> Juan Quiroz</span>
             <span class="text-neutral-500 text-[9px] uppercase tracking-[0.2em] font-medium hidden sm:block">Historia de los medios de comunicación</span>
         </div>
     </nav>
 
-    <header class="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-900/40 via-black to-black z-0"></div>
+    <header class="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0 opacity-30 mix-blend-luminosity bg-cover bg-center" style="background-image: url('img/fondo-periodicos.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black z-0"></div>
         
-        <div class="z-10 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-800 bg-black text-[10px] uppercase tracking-[0.2em] text-neutral-400 mb-8 font-bold">
-                Documento Interactivo
+        <div class="z-10 max-w-4xl mt-16" data-aos="zoom-out" data-aos-duration="1500">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-black/50 backdrop-blur-md text-[10px] uppercase tracking-[0.2em] text-neutral-300 mb-8 font-bold shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                Documento Interactivo Especial
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-6 tracking-tight">
-                Entre el Pánico y el <span class="italic text-neutral-500">Apretón de Manos</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-6 tracking-tight drop-shadow-2xl">
+                Entre el Pánico y el <br><span class="italic text-transparent bg-clip-text bg-gradient-to-r from-neutral-400 to-white">Apretón de Manos</span>
             </h1>
             <p class="text-lg md:text-2xl text-neutral-400 font-light leading-relaxed mb-12 max-w-2xl mx-auto font-serif">
                 La disonancia mediática en Colombia frente a la tensión diplomática Petro-Trump y el auge de la autocomunicación de masas.
             </p>
             
-            <a href="#ensayo" class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-800 text-neutral-500 hover:text-white hover:border-white transition-all duration-300 animate-bounce">
-                <i data-lucide="arrow-down" class="w-5 h-5"></i>
+            <a href="#ensayo" class="inline-flex items-center justify-center w-14 h-14 rounded-full border border-neutral-700 text-neutral-400 hover:text-white hover:border-white transition-all duration-300 animate-bounce bg-black/50 backdrop-blur-sm">
+                <i data-lucide="arrow-down" class="w-6 h-6"></i>
             </a>
         </div>
     </header>
 
-    <main id="ensayo" class="pt-20 pb-32 px-6 bg-black">
+    <main id="ensayo" class="pt-20 pb-16 px-6 bg-black relative z-10">
         <article class="max-w-3xl mx-auto">
             
             <div class="article-body font-serif">
@@ -71,97 +74,168 @@
                 </p>
 
                 <h2 data-aos="fade-right">El "Encuadre" del Miedo: La caja de resonancia</h2>
+                
+                <figure class="my-10" data-aos="fade-up">
+                    <img src="img/prensa.jpg" alt="Gráfica de noticiero Petro - Trump" class="w-full h-[450px] object-cover glass-image opacity-90 transition-all duration-500">
+                    <figcaption class="text-[10px] uppercase tracking-widest text-neutral-500 mt-4 text-center font-sans">Figura 1: Espectacularización y encuadre del conflicto en los medios y noticieros tradicionales.</figcaption>
+                </figure>
+
                 <p data-aos="fade-up">
                     El regreso de Donald Trump a la Casa Blanca trajo consigo una retórica hostil hacia América Latina. Hacia Colombia, y específicamente hacia el presidente Gustavo Petro, los ataques verbales iniciales de Trump fueron capitalizados de inmediato por los medios de comunicación hegemónicos del país (cuyas juntas directivas están estrechamente ligadas a los principales grupos financieros y élites políticas tradicionales).
                 </p>
+
+                <blockquote class="my-16 pl-8 border-l-4 border-blue-500 text-2xl md:text-3xl font-serif text-white italic leading-relaxed" data-aos="fade-right">
+                    "La estrategia mediática no buscaba defender la soberanía nacional, sino utilizar la amenaza externa como un arma de oposición interna."
+                </blockquote>
+
                 <p data-aos="fade-up">
-                    Teóricos como Noam Chomsky han explicado cómo los medios fabrican el consenso. En este caso, cadenas de televisión y revistas de circulación nacional aplicaron un <em>framing</em> (encuadre) apocalíptico. Titulares alarmistas predecían la ruina económica de Colombia. La estrategia mediática tradicional no buscaba defender la soberanía nacional frente al chantaje arancelario extranjero, sino utilizar la amenaza externa como un arma de oposición interna para debilitar la gobernabilidad del mandatario colombiano.
+                    Teóricos como Noam Chomsky han explicado cómo los medios fabrican el consenso. En este caso, cadenas de televisión y revistas de circulación nacional aplicaron un <em>framing</em> (encuadre) apocalíptico. Titulares alarmistas predecían la ruina económica de Colombia frente al chantaje arancelario extranjero, omitiendo el contexto global.
                 </p>
 
-                <div class="my-16 bg-[#0a0a0a] border border-neutral-800 rounded-2xl p-8 shadow-2xl" data-aos="zoom-in">
-                    <div class="flex items-center gap-3 mb-6 border-b border-neutral-900 pb-4">
-                        <i data-lucide="monitor-stop" class="w-5 h-5 text-neutral-500"></i>
-                        <h3 class="font-mono-title text-sm uppercase tracking-[0.2em] text-neutral-300">Laboratorio de Análisis: Encuadre Mediático</h3>
+                <div class="my-20 bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-neutral-800 rounded-2xl p-8 md:p-12 shadow-[0_0_40px_rgba(0,0,0,0.8)] relative overflow-hidden" data-aos="zoom-in">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-green-500"></div>
+                    <div class="flex items-center gap-3 mb-8 border-b border-neutral-800 pb-6">
+                        <div class="p-2 bg-neutral-900 rounded-lg border border-neutral-700"><i data-lucide="activity" class="w-5 h-5 text-white"></i></div>
+                        <h3 class="font-mono-title text-sm md:text-base uppercase tracking-[0.2em] text-white">Laboratorio de Análisis: Encuadre Mediático</h3>
                     </div>
                     
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <button id="btn-trad" onclick="switchTab('trad')" class="px-5 py-2.5 text-[10px] uppercase tracking-widest font-bold rounded bg-white text-black transition-all">Prensa Tradicional (Corporativa)</button>
-                        <button id="btn-alt" onclick="switchTab('alt')" class="px-5 py-2.5 text-[10px] uppercase tracking-widest font-bold rounded border border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500 transition-all">Medios Alternativos y Digitales</button>
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        <button id="btn-trad" onclick="switchTab('trad')" class="px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold rounded bg-white text-black transition-all hover:bg-neutral-200">Prensa Tradicional</button>
+                        <button id="btn-alt" onclick="switchTab('alt')" class="px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold rounded border border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500 transition-all bg-black/50">Medios Alternativos</button>
                     </div>
 
                     <div id="content-trad" class="fade-in block">
-                        <blockquote class="text-2xl md:text-3xl font-serif text-white font-bold leading-tight mb-4 border-l-4 border-red-600 pl-6">
-                            "Colombia al borde de la quiebra inminente por la furia arancelaria de Trump contra Petro"
+                        <blockquote class="text-3xl md:text-4xl font-serif text-white font-bold leading-tight mb-6 border-l-4 border-red-600 pl-6 drop-shadow-lg">
+                            "Colombia al borde de la quiebra inminente por la furia arancelaria de Trump"
                         </blockquote>
-                        <div class="bg-neutral-900/50 p-4 rounded-lg">
-                            <p class="text-xs font-mono-title text-neutral-400 uppercase tracking-widest mb-1">Análisis Técnico:</p>
-                            <p class="text-sm text-neutral-500 font-sans leading-relaxed">Uso de <em>Agenda-Setting</em> para priorizar el pánico. Se utiliza la figura internacional para castigar políticamente al adversario interno, omitiendo el contexto diplomático global.</p>
+                        <div class="bg-red-950/20 border border-red-900/30 p-5 rounded-xl backdrop-blur-sm">
+                            <p class="text-xs font-mono-title text-red-400 uppercase tracking-[0.2em] mb-2">Análisis Técnico (Framing):</p>
+                            <p class="text-sm text-neutral-400 font-sans leading-relaxed">Uso de <em>Agenda-Setting</em> para priorizar el pánico. Se utiliza la figura internacional para castigar políticamente al adversario interno.</p>
                         </div>
                     </div>
 
                     <div id="content-alt" class="fade-in hidden">
-                        <blockquote class="text-2xl md:text-3xl font-serif text-white font-bold leading-tight mb-4 border-l-4 border-green-500 pl-6">
-                            "Encuentro pragmático: Petro y Trump acercan posturas y reducen tensión comercial"
+                        <blockquote class="text-3xl md:text-4xl font-serif text-white font-bold leading-tight mb-6 border-l-4 border-green-500 pl-6 drop-shadow-lg">
+                            "Encuentro pragmático: Petro y Trump acercan posturas y reducen tensión"
                         </blockquote>
-                        <div class="bg-neutral-900/50 p-4 rounded-lg">
-                            <p class="text-xs font-mono-title text-neutral-400 uppercase tracking-widest mb-1">Análisis Técnico:</p>
-                            <p class="text-sm text-neutral-500 font-sans leading-relaxed">Uso del periodismo de datos y diplomacia directa (autocomunicación). Se muestra la declaración oficial sin sesgo editorial, evidenciando el acuerdo pragmático entre ambos mandatarios.</p>
+                        <div class="bg-green-950/20 border border-green-900/30 p-5 rounded-xl backdrop-blur-sm">
+                            <p class="text-xs font-mono-title text-green-400 uppercase tracking-[0.2em] mb-2">Análisis Técnico (Fact-Checking):</p>
+                            <p class="text-sm text-neutral-400 font-sans leading-relaxed">Uso del periodismo de datos y diplomacia directa. Se muestra la declaración oficial sin sesgo, evidenciando el acuerdo pragmático.</p>
                         </div>
                     </div>
                 </div>
-                <h2 data-aos="fade-right">Diplomacia Digital y la Persuasión Comunicativa</h2>
+
+                <h2 data-aos="fade-right">Diplomacia Digital y Persuasión</h2>
+                
+                <figure class="my-10 float-right ml-8 mb-6 w-full md:w-1/2" data-aos="fade-left">
+                    <img src="img/diplomacia-digital.jpeg" alt="Diplomacia digital y redes sociales" class="w-full h-[300px] object-cover glass-image opacity-90 transition-all hover:scale-105">
+                </figure>
+
                 <p data-aos="fade-up">
-                    Frente al cerco mediático tradicional, la respuesta del gobierno colombiano representó un hito en el uso de las nuevas tecnologías para la diplomacia directa. Gustavo Petro aplicó lo que Manuel Castells denomina "autocomunicación de masas". A través de su cuenta en la red social X (antes Twitter) y alocuciones transmitidas por plataformas digitales, eludió el filtro de las salas de redacción tradicionales. 
+                    Frente al cerco mediático tradicional, la respuesta del gobierno colombiano representó un hito en el uso de las nuevas tecnologías para la diplomacia directa. Gustavo Petro aplicó lo que Manuel Castells denomina "autocomunicación de masas". A través de su cuenta en la red social X (antes Twitter) y alocuciones transmitidas por plataformas digitales, eludió el filtro de las salas de redacción. 
                 </p>
-                <p data-aos="fade-up">
+                <p data-aos="fade-up" class="clear-both">
                     Su estrategia de persuasión comunicativa fue magistral: en lugar de responder al insulto con insulto, optó por la coherencia argumentativa. Posicionó el debate en términos de interdependencia económica y pragmatismo comercial. Utilizó la tecnología para hablarle directamente tanto a su base política como a la comunidad internacional.
                 </p>
+            </div>
+        </article>
+    </main>
 
-                <h2 data-aos="fade-right">El Clímax y la Disonancia Cognitiva de las Élites</h2>
+    <section class="relative w-full py-32 md:py-56 parallax-section overflow-hidden" style="background-image: url('img/petro-trump.jpg'); background-position: center 20%;">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center" data-aos="zoom-in">
+            <i data-lucide="quote" class="w-12 h-12 text-white/30 mx-auto mb-6"></i>
+            <h3 class="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
+                "La verdad ya no se imprime en una sola rotativa; hoy se disputa y se democratiza en la red."
+            </h3>
+        </div>
+    </section>
+
+    <main class="pt-24 pb-10 px-6 bg-black relative z-10">
+        <article class="max-w-3xl mx-auto">
+            <div class="article-body font-serif">
+                <h2 data-aos="fade-right">El Clímax y la Disonancia Cognitiva</h2>
                 <p data-aos="fade-up">
-                    El punto de quiebre histórico ocurrió durante la cumbre bilateral en la Casa Blanca. Contrario a los pronósticos de los grandes medios colombianos que anticipaban una humillación o una ruptura, la reunión concluyó con un Donald Trump elogiando públicamente a Gustavo Petro. Las declaraciones de Trump, calificando a Petro como un "gran hombre" con el que se llevaría "genial", supusieron un cortocircuito en la Agenda-Setting de los medios tradicionales.
+                    El punto de quiebre histórico ocurrió durante la cumbre bilateral en la Casa Blanca. Contrario a los pronósticos de los grandes medios colombianos que anticipaban una humillación o una ruptura, la reunión concluyó con un Donald Trump elogiando públicamente a Gustavo Petro. Las declaraciones de Trump, calificando a Petro como un "gran hombre" con el que se llevaría "genial", supusieron un cortocircuito en la Agenda-Setting tradicional.
                 </p>
                 <p data-aos="fade-up">
-                    La reacción de la prensa corporativa fue un claro ejemplo de disonancia cognitiva. Los mismos noticieros y portadas que semanas antes dedicaron horas de transmisión a los insultos, minimizaron el éxito diplomático de la reunión. Algunos intentaron invisibilizar los elogios, buscando reencuadrar el apretón de manos como una simple "formalidad".
+                    La reacción de la prensa corporativa fue un claro ejemplo de disonancia cognitiva. Los mismos noticieros que semanas antes dedicaron horas de transmisión a los insultos, minimizaron el éxito diplomático de la reunión, buscando reencuadrar el apretón de manos como una simple "formalidad".
                 </p>
 
-                <h2 data-aos="fade-right">El Contrapeso: El Escudo Digital Democrático</h2>
+                <h2 data-aos="fade-right">El Contrapeso Democrático Digital</h2>
                 <p data-aos="fade-up">
-                    Es en este vacío de objetividad donde las nuevas tecnologías y los medios de comunicación alternativos justificaron su papel histórico. Portales nativos digitales, redes de periodismo independiente, creadores de contenido y medios públicos (RTVC) actuaron como el contrapeso necesario. 
-                </p>
-                <p data-aos="fade-up">
-                    Estos canales no solo transmitieron las declaraciones completas de Trump elogiando a Petro, sino que realizaron ejercicios de <em>fact-checking</em>, exponiendo la hipocresía corporativa. La democratización de la información rompió el monopolio de la interpretación. La verdad ya no se imprime en una sola rotativa; hoy se disputa y se democratiza en la red.
+                    Es en este vacío de objetividad donde las nuevas tecnologías justificaron su papel histórico. Portales nativos digitales, redes de periodismo independiente, creadores de contenido y medios públicos (RTVC) actuaron como el contrapeso necesario. Estos canales transmitieron las declaraciones completas y realizaron ejercicios de <em>fact-checking</em> en tiempo real, rompiendo el monopolio de la interpretación y demostrando la madurez del ecosistema digital.
                 </p>
             </div>
 
-            <div class="mt-24 pt-12 border-t border-neutral-900" data-aos="fade-up">
-                <div class="flex items-center gap-2 mb-8">
-                    <i data-lucide="library" class="w-5 h-5 text-neutral-500"></i>
-                    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-white font-mono-title">Aparato Crítico y Referencias</h3>
+            <div class="mt-24 mb-10" data-aos="fade-up">
+                <div class="flex items-center justify-center gap-4 mb-10">
+                    <div class="h-px bg-gradient-to-r from-transparent via-neutral-600 to-transparent w-16 md:w-32"></div>
+                    <h3 class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white font-mono-title text-center">Explora mi Ecosistema Digital</h3>
+                    <div class="h-px bg-gradient-to-r from-transparent via-neutral-600 to-transparent w-16 md:w-32"></div>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8 text-xs text-neutral-400 font-sans">
-                    <ul class="space-y-5">
-                        <li class="pl-4 border-l border-neutral-800 hover:border-neutral-500 transition-colors">
-                            <strong class="text-neutral-200 block mb-1">Castells, M. (2009).</strong> 
-                            <em>Comunicación y poder</em>. Alianza Editorial. (Concepto de autocomunicación de masas).
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans">
+                    <a href="https://juanquiroz.site" target="_blank" class="group block p-6 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:border-blue-500/50 hover:bg-neutral-900/60 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-mono-title text-blue-400 text-sm tracking-widest uppercase group-hover:text-blue-300">Juan Quiroz</h4>
+                            <i data-lucide="external-link" class="w-4 h-4 text-neutral-600 group-hover:text-blue-400 transition-colors"></i>
+                        </div>
+                        <p class="text-neutral-500 text-xs leading-relaxed">Hub central de mis proyectos, trayectoria profesional y desarrollo.</p>
+                    </a>
+
+                    <a href="https://soul-agency.vercel.app" target="_blank" class="group block p-6 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:border-purple-500/50 hover:bg-neutral-900/60 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-mono-title text-purple-400 text-sm tracking-widest uppercase group-hover:text-purple-300">SOUL Agency</h4>
+                            <i data-lucide="external-link" class="w-4 h-4 text-neutral-600 group-hover:text-purple-400 transition-colors"></i>
+                        </div>
+                        <p class="text-neutral-500 text-xs leading-relaxed">Estudio de Comunicación Transmedia, Estrategia e impacto social.</p>
+                    </a>
+
+                    <a href="https://lavariable.site" target="_blank" class="group block p-6 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:border-orange-500/50 hover:bg-neutral-900/60 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-mono-title text-orange-400 text-sm tracking-widest uppercase group-hover:text-orange-300">La Variable</h4>
+                            <i data-lucide="external-link" class="w-4 h-4 text-neutral-600 group-hover:text-orange-400 transition-colors"></i>
+                        </div>
+                        <p class="text-neutral-500 text-xs leading-relaxed">Plataforma dedicada al periodismo de datos, análisis e investigación.</p>
+                    </a>
+
+                    <a href="https://www.naujzoriuq.site/protocolo-01" target="_blank" class="group block p-6 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:border-emerald-500/50 hover:bg-neutral-900/60 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-mono-title text-emerald-400 text-sm tracking-widest uppercase group-hover:text-emerald-300">S.I.N.A.P.S.I.S.</h4>
+                            <i data-lucide="external-link" class="w-4 h-4 text-neutral-600 group-hover:text-emerald-400 transition-colors"></i>
+                        </div>
+                        <p class="text-neutral-500 text-xs leading-relaxed">Protocolos de información, comunicación estratégica y laboratorio web.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-20 pt-16 border-t border-neutral-900 relative" data-aos="fade-up">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black px-4">
+                    <i data-lucide="book-marked" class="w-8 h-8 text-neutral-700"></i>
+                </div>
+                <div class="text-center mb-12">
+                    <h3 class="text-sm font-bold tracking-[0.3em] uppercase text-white font-mono-title">Aparato Crítico y Referencias</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10 text-sm text-neutral-400 font-sans">
+                    <ul class="space-y-6">
+                        <li class="p-5 rounded-xl border border-neutral-800 bg-neutral-950/30 hover:border-neutral-600 transition-colors">
+                            <strong class="text-white block mb-1 text-base font-serif">Castells, M. (2009).</strong> 
+                            <em>Comunicación y poder</em>. Alianza Editorial. <br><span class="text-xs text-neutral-500 mt-2 block">(Concepto de autocomunicación de masas).</span>
                         </li>
-                        <li class="pl-4 border-l border-neutral-800 hover:border-neutral-500 transition-colors">
-                            <strong class="text-neutral-200 block mb-1">Chomsky, N., & Herman, E. S. (1990).</strong> 
-                            <em>Los guardianes de la libertad</em>. Crítica. (Fabricación del consenso).
-                        </li>
-                        <li class="pl-4 border-l border-neutral-800 hover:border-neutral-500 transition-colors">
-                            <strong class="text-neutral-200 block mb-1">Entman, R. M. (1993).</strong> 
-                            <em>Framing: Toward Clarification of a Fractured Paradigm</em>. (Encuadre mediático).
+                        <li class="p-5 rounded-xl border border-neutral-800 bg-neutral-950/30 hover:border-neutral-600 transition-colors">
+                            <strong class="text-white block mb-1 text-base font-serif">Chomsky, N., & Herman, E. S. (1990).</strong> 
+                            <em>Los guardianes de la libertad</em>. Crítica. <br><span class="text-xs text-neutral-500 mt-2 block">(Fabricación del consenso).</span>
                         </li>
                     </ul>
-                    <ul class="space-y-5">
-                        <li class="pl-4 border-l border-neutral-800 hover:border-neutral-500 transition-colors">
-                            <strong class="text-neutral-200 block mb-1">McCombs, M. (2004).</strong> 
-                            <em>Estableciendo la agenda</em>. Ediciones Paidós. (Agenda-Setting).
+                    <ul class="space-y-6">
+                        <li class="p-5 rounded-xl border border-neutral-800 bg-neutral-950/30 hover:border-neutral-600 transition-colors">
+                            <strong class="text-white block mb-1 text-base font-serif">Entman, R. M. (1993).</strong> 
+                            <em>Framing: Toward Clarification of a Fractured Paradigm</em>. <br><span class="text-xs text-neutral-500 mt-2 block">(Encuadre mediático).</span>
                         </li>
-                        <li class="pl-4 border-l border-neutral-800 hover:border-neutral-500 transition-colors">
-                            <strong class="text-neutral-200 block mb-1">Archivo Digital (2025-2026).</strong> 
-                            RTVC Noticias; X (@petrogustavo). Seguimiento de diplomacia directa.
+                        <li class="p-5 rounded-xl border border-neutral-800 bg-neutral-950/30 hover:border-neutral-600 transition-colors">
+                            <strong class="text-white block mb-1 text-base font-serif">McCombs, M. (2004).</strong> 
+                            <em>Estableciendo la agenda</em>. Ediciones Paidós. <br><span class="text-xs text-neutral-500 mt-2 block">(Agenda-Setting).</span>
                         </li>
                     </ul>
                 </div>
@@ -169,21 +243,22 @@
         </article>
     </main>
 
-    <footer class="bg-black py-16 border-t border-neutral-900 text-center">
-        <div class="max-w-max mx-auto px-6 py-2 border border-neutral-800 rounded-full inline-flex items-center gap-2 mb-6">
-            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span class="text-[9px] uppercase tracking-widest text-neutral-500 font-bold">Sistema Interactivo Activo</span>
+    <footer class="bg-[#020202] py-16 border-t border-neutral-900 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-neutral-900/20 via-black to-black z-0"></div>
+        <div class="relative z-10">
+            <div class="max-w-max mx-auto px-6 py-2 border border-neutral-800 bg-black/50 rounded-full inline-flex items-center gap-3 mb-6 backdrop-blur-md">
+                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-bold">Sistema Interactivo Desplegado</span>
+            </div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-neutral-600 font-mono-title">Desarrollado y Diseñado por Juan Quiroz • 2026</p>
         </div>
-        <p class="text-[10px] uppercase tracking-[0.2em] text-neutral-600 font-mono-title">Desarrollado y Escrito por Juan Quiroz • 2026</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializar Iconos y Animaciones
         lucide.createIcons();
-        AOS.init({ once: true, offset: 50 });
+        AOS.init({ once: true, offset: 50, duration: 800 });
 
-        // Barra de Progreso de Lectura
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -191,7 +266,6 @@
             document.getElementById("progress-bar").style.width = scrolled + "%";
         };
 
-        // Lógica del Módulo Interactivo (Tabs)
         function switchTab(tabId) {
             const btnTrad = document.getElementById('btn-trad');
             const btnAlt = document.getElementById('btn-alt');
@@ -199,13 +273,13 @@
             const contentAlt = document.getElementById('content-alt');
 
             if(tabId === 'trad') {
-                btnTrad.className = "px-5 py-2.5 text-[10px] uppercase tracking-widest font-bold rounded bg-white text-black transition-all";
-                btnAlt.className = "px-5 py-2.5 text-[10px] uppercase tracking-widest font-bold rounded border border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500 transition-all";
+                btnTrad.className = "px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold rounded bg-white text-black transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]";
+                btnAlt.className = "px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold rounded border border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500 transition-all bg-black/50";
                 contentTrad.classList.remove('hidden');
                 contentAlt.classList.add('hidden');
             } else {
-                btnAlt.className = "px-5 py-2.5 text-[10px] uppercase tracking-widest font-bold rounded bg-white text-black transition-all";
-                btnTrad.className = "px-5 py-2.5 text-[10px] uppercase tracking-widest font-bold rounded border border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500 transition-all";
+                btnAlt.className = "px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold rounded bg-white text-black transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]";
+                btnTrad.className = "px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold rounded border border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500 transition-all bg-black/50";
                 contentAlt.classList.remove('hidden');
                 contentTrad.classList.add('hidden');
             }
